@@ -1,0 +1,15 @@
+# Package dependencies Installed in the project
+node_modules/
+
+# Compliled jsvascript files
+dist/
+
+# environment variables
+.env.*.local
+
+# Prisma & Prisma generated files
+prisma/
+./src/infrastructure/database/
+/src/generated/prisma
+
+/src/generated/prisma

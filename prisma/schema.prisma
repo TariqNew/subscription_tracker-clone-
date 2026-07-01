@@ -1,8 +1,6 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
-  provider = "prisma-client-js"
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
 }
 
 datasource db {
@@ -13,18 +11,15 @@ model User {
   id    Int     @id @default(autoincrement())
   email String  @unique
   name  String?
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  password String
+  posts Post[]
 }
 
-model Subscription {
-  id    Int     @id @default(autoincrement())
-  userId Int
-  planName String
-  price Float
-  status String @default("active")
-
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+model Post {
+  id        Int     @id @default(autoincrement())
+  title     String
+  content   String?
+  published Boolean @default(false)
+  authorId  Int
+  author    User    @relation(fields: [authorId], references: [id])
 }

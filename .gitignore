@@ -7,6 +7,9 @@ dist/
 # environment variables
 .env.*.local
 
+# Test coverage
+coverage/
+
 # Prisma & Prisma generated files
 prisma/
 ./src/infrastructure/database/
